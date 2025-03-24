@@ -19,4 +19,4 @@ fn convert_flac_to_aac(flac_path: &Path, aac_path: &Path) -> std::io::Result<()>
         .arg(flac_path)
         .status()?;
     Ok(())
-}a
+}
