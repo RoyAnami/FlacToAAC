@@ -176,7 +176,7 @@ fn main() {
     // 元のFLAC, CUE, JPG、PNGと分割したFLACファイルを削除
     let files_to_delete = vec![
         flac_path,
-        cue_path_buf.clone(),  // 修正：所有権を移動せずにクローンを使
+        cue_path_buf.clone(),  // 修正：所有権を移動せずにクローンを使u
         artwork_path,
         png_path,
     ];
