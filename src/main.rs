@@ -1,5 +1,5 @@
 use rfd::FileDialog;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::collections::HashMap;
 use std::fs;
 use std::process::Command;
@@ -134,6 +134,8 @@ fn main() {
             .and_then(|info| info.title.as_ref())
             .map(|s| s.clone())
             .unwrap_or_else(|| "unknown".to_string());
+        
+        let album_artist = global_performer.clone().unwrap_or_else(|| "unknown artist".to_string());
 
         let performer = track_info
             .and_then(|info| info.performer.as_ref())
@@ -155,6 +157,7 @@ fn main() {
                 "--verbose",
                 "--artwork", artwork_path.to_str().unwrap(),
                 "--title", &title,
+                "--band", &album_artist,
                 "--artist", &performer,
                 "--album", &album,
                 "--date", &date,
